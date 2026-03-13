@@ -1,0 +1,2 @@
+10.10.21.14 - - [15/Jan/2026:10:15:01 +0000] "POST /api/v1/checkout HTTP/1.1" 504 173 "-" "Mozilla/5.0" rt=1.503 uct="0.003" urt="1.499" uht="1.497" request_id=1259cb4c9ae1 upstream_addr=10.42.8.17:8080
+10.10.21.15 - - [15/Jan/2026:10:15:14 +0000] "GET /health HTTP/1.1" 200 24 "-" "kube-probe/1.29" rt=0.002 uct="0.001" urt="0.001" uht="0.001" request_id=health-001 upstream_addr=10.42.8.17:8080

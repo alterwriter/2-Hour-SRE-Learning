@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="620" viewBox="0 0 1060 620">
+<style>
+    .title { font: 700 24px "DejaVu Sans", Arial, sans-serif; fill: #0f172a; }
+    .subtitle { font: 600 15px "DejaVu Sans", Arial, sans-serif; fill: #1e293b; }
+    .label { font: 600 14px "DejaVu Sans", Arial, sans-serif; fill: #0f172a; }
+    .small { font: 400 12px "DejaVu Sans", Arial, sans-serif; fill: #334155; }
+    .tiny { font: 400 11px "DejaVu Sans", Arial, sans-serif; fill: #475569; }
+    .box { fill: #f8fafc; stroke: #94a3b8; stroke-width: 1.5; rx: 14; ry: 14; }
+    .box2 { fill: #eef6ff; stroke: #60a5fa; stroke-width: 1.5; rx: 14; ry: 14; }
+    .box3 { fill: #f0fdf4; stroke: #4ade80; stroke-width: 1.5; rx: 14; ry: 14; }
+    .box4 { fill: #fff7ed; stroke: #fb923c; stroke-width: 1.5; rx: 14; ry: 14; }
+    .box5 { fill: #fdf2f8; stroke: #f472b6; stroke-width: 1.5; rx: 14; ry: 14; }
+    .line { stroke: #64748b; stroke-width: 2.4; fill: none; marker-end: url(#arrow); }
+    .line2 { stroke: #94a3b8; stroke-width: 2; fill: none; marker-end: url(#arrow2); stroke-dasharray: 6 6; }
+</style>
+<defs>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+  </marker>
+  <marker id="arrow2" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/>
+  </marker>
+</defs>
+
+<rect x="30" y="28" width="1000" height="564" rx="20" fill="#ffffff" stroke="#e2e8f0"/>
+<text x="55" y="68" class="title">Observability Pipeline</text>
+<text x="55" y="95" class="small">Sinyal operasional harus bergerak dari layanan ke keputusan tindakan, bukan berhenti di dashboard.</text>
+
+<rect class="box2" x="55" y="180" width="180" height="100"/>
+<text x="88" y="212" class="subtitle">Service &amp; Infra</text>
+<text x="95" y="236" class="small">Aplikasi, database,</text>
+<text x="98" y="255" class="small">jaringan, queue</text>
+
+<rect class="box3" x="285" y="125" width="170" height="80"/>
+<text x="338" y="155" class="subtitle">Metrics</text>
+<text x="311" y="177" class="small">latency, error, saturation</text>
+
+<rect class="box3" x="285" y="240" width="170" height="80"/>
+<text x="352" y="270" class="subtitle">Logs</text>
+<text x="317" y="292" class="small">event, exception, context</text>
+
+<rect class="box3" x="285" y="355" width="170" height="80"/>
+<text x="345" y="385" class="subtitle">Traces</text>
+<text x="311" y="407" class="small">alur request antar service</text>
+
+<rect class="box4" x="525" y="180" width="200" height="100"/>
+<text x="552" y="212" class="subtitle">Dashboard &amp; Alert</text>
+<text x="551" y="236" class="small">visualisasi, threshold,</text>
+<text x="555" y="255" class="small">deteksi dini anomali</text>
+
+<rect class="box5" x="785" y="180" width="190" height="100"/>
+<text x="831" y="212" class="subtitle">On-Call</text>
+<text x="806" y="236" class="small">triage, runbook, eskalasi,</text>
+<text x="823" y="255" class="small">komunikasi status</text>
+
+<rect class="box" x="525" y="360" width="450" height="110"/>
+<text x="552" y="392" class="subtitle">Pertanyaan audit utama</text>
+<text x="552" y="418" class="small">Apakah sinyal cukup dan konsisten?</text>
+<text x="552" y="438" class="small">Apakah alert dapat ditindaklanjuti?</text>
+<text x="552" y="458" class="small">Apakah tim dapat menjelaskan dampak layanan dalam 5 menit pertama?</text>
+
+<path class="line" d="M235 230 H285"/>
+<path class="line" d="M235 230 V165 H285"/>
+<path class="line" d="M235 230 V395 H285"/>
+<path class="line" d="M455 165 H525"/>
+<path class="line" d="M455 280 H525"/>
+<path class="line" d="M455 395 H525"/>
+<path class="line" d="M725 230 H785"/>
+
+</svg>

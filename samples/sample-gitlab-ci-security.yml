@@ -1,0 +1,44 @@
+stages:
+  - test
+  - security
+  - package
+
+include:
+  - template: Security/SAST.gitlab-ci.yml
+  - template: Security/Dependency-Scanning.gitlab-ci.yml
+  - template: Jobs/Container-Scanning.gitlab-ci.yml
+
+variables:
+  SECURE_LOG_LEVEL: "info"
+  SAST_EXCLUDED_PATHS: "docs,tmp"
+  DS_EXCLUDED_ANALYZERS: ""
+  CS_IMAGE: "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHA"
+
+unit_test:
+  stage: test
+  image: python:3.12
+  script:
+    - pip install -r requirements.txt
+    - pytest -q
+  artifacts:
+    when: always
+    reports:
+      junit: report.xml
+
+iac_scan:
+  stage: security
+  image:
+    name: bridgecrew/checkov:latest
+    entrypoint: [""]
+  script:
+    - checkov -d infrastructure --framework terraform,kubernetes --compact
+  allow_failure: false
+
+package_image:
+  stage: package
+  image: docker:27
+  services:
+    - docker:27-dind
+  script:
+    - docker build -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHA" .
+    - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHA"

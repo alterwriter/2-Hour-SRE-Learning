@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="620" viewBox="0 0 1060 620">
+<style>
+    .title { font: 700 24px "DejaVu Sans", Arial, sans-serif; fill: #0f172a; }
+    .subtitle { font: 600 15px "DejaVu Sans", Arial, sans-serif; fill: #1e293b; }
+    .label { font: 600 14px "DejaVu Sans", Arial, sans-serif; fill: #0f172a; }
+    .small { font: 400 12px "DejaVu Sans", Arial, sans-serif; fill: #334155; }
+    .tiny { font: 400 11px "DejaVu Sans", Arial, sans-serif; fill: #475569; }
+    .box { fill: #f8fafc; stroke: #94a3b8; stroke-width: 1.5; rx: 14; ry: 14; }
+    .box2 { fill: #eef6ff; stroke: #60a5fa; stroke-width: 1.5; rx: 14; ry: 14; }
+    .box3 { fill: #f0fdf4; stroke: #4ade80; stroke-width: 1.5; rx: 14; ry: 14; }
+    .box4 { fill: #fff7ed; stroke: #fb923c; stroke-width: 1.5; rx: 14; ry: 14; }
+    .box5 { fill: #fdf2f8; stroke: #f472b6; stroke-width: 1.5; rx: 14; ry: 14; }
+    .line { stroke: #64748b; stroke-width: 2.4; fill: none; marker-end: url(#arrow); }
+    .line2 { stroke: #94a3b8; stroke-width: 2; fill: none; marker-end: url(#arrow2); stroke-dasharray: 6 6; }
+</style>
+<defs>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+  </marker>
+  <marker id="arrow2" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/>
+  </marker>
+</defs>
+
+<rect x="30" y="28" width="1000" height="564" rx="20" fill="#ffffff" stroke="#e2e8f0"/>
+<text x="55" y="68" class="title">Error Budget Decision Flow</text>
+<text x="55" y="95" class="small">Kerangka sederhana untuk menghubungkan target reliabilitas dengan keputusan perubahan layanan.</text>
+
+<rect class="box2" x="80" y="150" width="190" height="90"/>
+<text x="114" y="182" class="subtitle">SLO Bulanan</text>
+<text x="112" y="205" class="small">Contoh: Availability 99,90%</text>
+
+<rect class="box3" x="340" y="150" width="190" height="90"/>
+<text x="368" y="182" class="subtitle">Hitung Burn Rate</text>
+<text x="365" y="205" class="small">Konsumsi error budget aktual</text>
+
+<rect class="box4" x="600" y="110" width="230" height="100"/>
+<text x="636" y="142" class="subtitle">Dalam Batas Aman</text>
+<text x="626" y="167" class="small">Rilis dapat dilanjutkan dengan</text>
+<text x="642" y="186" class="small">pengawasan normal</text>
+
+<rect class="box5" x="600" y="265" width="230" height="110"/>
+<text x="647" y="297" class="subtitle">Melebihi Ambang</text>
+<text x="620" y="322" class="small">Bekukan perubahan berisiko tinggi,</text>
+<text x="620" y="341" class="small">prioritaskan stabilisasi dan RCA</text>
+
+<rect class="box" x="860" y="180" width="140" height="110"/>
+<text x="889" y="212" class="subtitle">Keputusan</text>
+<text x="883" y="237" class="small">Rilis / Tunda /</text>
+<text x="876" y="256" class="small">Hardening / Review</text>
+
+<path class="line" d="M270 195 H340"/>
+<path class="line" d="M530 195 H600"/>
+<path class="line" d="M830 160 H860"/>
+<path class="line" d="M830 320 H860"/>
+<path class="line2" d="M435 240 V320 H600"/>
+<text x="338" y="292" class="tiny">Jika burn rate tinggi dalam jendela pendek</text>
+<text x="345" y="308" class="tiny">dan panjang, risiko gangguan meningkat</text>
+
+<rect x="80" y="430" width="920" height="92" rx="12" fill="#f8fafc" stroke="#cbd5e1"/>
+<text x="105" y="462" class="label">Contoh kebijakan operasional</text>
+<text x="105" y="488" class="small">• Burn rate &lt; 1,0 → perubahan normal</text>
+<text x="425" y="488" class="small">• Burn rate 1,0–2,0 → perubahan selektif dan pengawasan tambahan</text>
+<text x="105" y="508" class="small">• Burn rate &gt; 2,0 → prioritaskan stabilisasi, review alert, dan mitigasi akar masalah</text>
+
+</svg>

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="620" viewBox="0 0 1060 620">
+<style>
+    .title { font: 700 24px "DejaVu Sans", Arial, sans-serif; fill: #0f172a; }
+    .subtitle { font: 600 15px "DejaVu Sans", Arial, sans-serif; fill: #1e293b; }
+    .label { font: 600 14px "DejaVu Sans", Arial, sans-serif; fill: #0f172a; }
+    .small { font: 400 12px "DejaVu Sans", Arial, sans-serif; fill: #334155; }
+    .tiny { font: 400 11px "DejaVu Sans", Arial, sans-serif; fill: #475569; }
+    .box { fill: #f8fafc; stroke: #94a3b8; stroke-width: 1.5; rx: 14; ry: 14; }
+    .box2 { fill: #eef6ff; stroke: #60a5fa; stroke-width: 1.5; rx: 14; ry: 14; }
+    .box3 { fill: #f0fdf4; stroke: #4ade80; stroke-width: 1.5; rx: 14; ry: 14; }
+    .box4 { fill: #fff7ed; stroke: #fb923c; stroke-width: 1.5; rx: 14; ry: 14; }
+    .box5 { fill: #fdf2f8; stroke: #f472b6; stroke-width: 1.5; rx: 14; ry: 14; }
+    .line { stroke: #64748b; stroke-width: 2.4; fill: none; marker-end: url(#arrow); }
+    .line2 { stroke: #94a3b8; stroke-width: 2; fill: none; marker-end: url(#arrow2); stroke-dasharray: 6 6; }
+</style>
+<defs>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+  </marker>
+  <marker id="arrow2" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/>
+  </marker>
+</defs>
+
+<rect x="30" y="28" width="1000" height="564" rx="20" fill="#ffffff" stroke="#e2e8f0"/>
+<text x="55" y="68" class="title">2-Hour SRE — Operating Model SRE</text>
+<text x="55" y="95" class="small">Relasi antara target layanan, observabilitas, respons insiden, dan perbaikan berkelanjutan.</text>
+
+<rect class="box2" x="55" y="140" width="180" height="100"/>
+<text x="76" y="172" class="subtitle">Ekspektasi Pengguna</text>
+<text x="76" y="195" class="small">Ketersediaan, latensi,</text>
+<text x="76" y="214" class="small">dan pengalaman layanan</text>
+
+<rect class="box3" x="285" y="140" width="180" height="100"/>
+<text x="336" y="172" class="subtitle">SLI / SLO</text>
+<text x="306" y="195" class="small">Definisi target reliabilitas</text>
+<text x="323" y="214" class="small">dan error budget</text>
+
+<rect class="box4" x="515" y="140" width="180" height="100"/>
+<text x="543" y="172" class="subtitle">Observabilitas</text>
+<text x="535" y="195" class="small">Metrics, logs, traces,</text>
+<text x="549" y="214" class="small">dashboard, alert</text>
+
+<rect class="box5" x="745" y="140" width="180" height="100"/>
+<text x="770" y="172" class="subtitle">On-Call &amp; Incident</text>
+<text x="770" y="195" class="small">Triage, mitigasi,</text>
+<text x="756" y="214" class="small">komunikasi, pemulihan</text>
+
+<rect class="box" x="285" y="335" width="180" height="100"/>
+<text x="324" y="367" class="subtitle">Runbook</text>
+<text x="307" y="390" class="small">Langkah standar, eskalasi,</text>
+<text x="317" y="409" class="small">dan rollback plan</text>
+
+<rect class="box" x="515" y="335" width="180" height="100"/>
+<text x="546" y="367" class="subtitle">Postmortem</text>
+<text x="527" y="390" class="small">Akar masalah, dampak,</text>
+<text x="524" y="409" class="small">aksi perbaikan sistemik</text>
+
+<rect class="box2" x="745" y="335" width="180" height="100"/>
+<text x="774" y="367" class="subtitle">Improvement</text>
+<text x="776" y="390" class="small">Hardening, automasi,</text>
+<text x="764" y="409" class="small">pengurangan toil, review</text>
+
+<path class="line" d="M235 190 H285"/>
+<path class="line" d="M465 190 H515"/>
+<path class="line" d="M695 190 H745"/>
+<path class="line" d="M835 240 V335"/>
+<path class="line" d="M605 240 V335"/>
+<path class="line" d="M375 240 V335"/>
+<path class="line2" d="M835 435 C835 505, 430 505, 235 435"/>
+
+<rect x="55" y="490" width="880" height="66" rx="12" fill="#eff6ff" stroke="#bfdbfe"/>
+<text x="76" y="520" class="label">Pesan inti</text>
+<text x="160" y="520" class="small">SRE bukan sekadar monitoring. SRE adalah sistem operasional untuk mengelola reliabilitas secara terukur.</text>
+
+</svg>

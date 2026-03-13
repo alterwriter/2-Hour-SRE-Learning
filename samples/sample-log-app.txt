@@ -1,0 +1,5 @@
+2026-01-15T10:14:51.221Z level=INFO service=checkout env=prod request_id=3ad9e2b8a7f8 trace_id=41d71f2cb2bf11d4 msg="request accepted" method=POST path=/api/v1/checkout user_id=usr-10321 cart_items=3
+2026-01-15T10:15:02.044Z level=WARN service=checkout env=prod request_id=1259cb4c9ae1 trace_id=41d71f2cb2bf11d4 msg="upstream latency elevated" upstream=payment-gateway elapsed_ms=873
+2026-01-15T10:15:03.015Z level=ERROR service=checkout env=prod request_id=1259cb4c9ae1 trace_id=41d71f2cb2bf11d4 msg="checkout failed" error_code=PAYMENT_TIMEOUT http_status=504 elapsed_ms=1504 customer_tier=premium
+2026-01-15T10:15:03.021Z level=INFO service=checkout env=prod request_id=1259cb4c9ae1 trace_id=41d71f2cb2bf11d4 msg="fallback response returned to caller" fallback_mode=retry_later
+2026-01-15T10:16:09.882Z level=INFO service=checkout env=prod request_id=ea2ce9031231 trace_id=61f3d91ee1e94f6d msg="request completed" method=POST path=/api/v1/checkout http_status=201 elapsed_ms=231

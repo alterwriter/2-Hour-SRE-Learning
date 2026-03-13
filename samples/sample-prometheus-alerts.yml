@@ -1,0 +1,24 @@
+groups:
+  - name: sre-demo.rules
+    rules:
+      - alert: CheckoutHighLatencyP95
+        expr: histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket{service="checkout"}[5m])) by (le)) > 0.25
+        for: 10m
+        labels:
+          severity: warning
+          team: sre
+          service: checkout
+        annotations:
+          summary: "Latensi p95 checkout melebihi 250 ms"
+          description: "Periksa dependency payment-gateway, error rate, dan burn rate SLO."
+          runbook_url: "https://example.internal/runbooks/checkout-latency"
+      - alert: CheckoutErrorRateHigh
+        expr: sum(rate(http_requests_total{service="checkout",status=~"5.."}[5m])) / sum(rate(http_requests_total{service="checkout"}[5m])) > 0.005
+        for: 5m
+        labels:
+          severity: critical
+          team: sre
+          service: checkout
+        annotations:
+          summary: "Error rate checkout melebihi 0,5%"
+          description: "Aktifkan triage, validasi dampak pengguna, dan pertimbangkan rollback."

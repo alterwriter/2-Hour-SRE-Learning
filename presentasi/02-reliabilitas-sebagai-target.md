@@ -16,7 +16,7 @@
 | Error Budget | Ruang toleransi kegagalan | 0,10% per window 30 hari |
 
 ## Diagram Error Budget
-![Error Budget Decision](assets/02-error-budget-decision.png)
+![Error Budget Decision](../assets/02-error-budget-decision.png)
 
 ## Contoh Definisi SLI dan SLO
 | Layanan | SLI | Target SLO | Window | Ambang perhatian |

@@ -15,7 +15,7 @@ Observability yang baik bukan hanya banyak dashboard, melainkan kemampuan menjaw
 4. Langkah mitigasi pertama apa yang paling aman?
 
 ## Diagram Observability
-![Observability Pipeline](assets/03-observability-pipeline.png)
+![Observability Pipeline](../assets/03-observability-pipeline.png)
 
 ## Tabel Audit Observability
 | Domain | Pertanyaan Audit | Bukti Minimum |
@@ -41,10 +41,10 @@ File sumber: `samples/sample-metrics.csv`
 | 10:55 | 256.5 | 0.23 | 55.7 |
 
 ### Visual Tren Latensi
-![Tren Latensi p95](assets/05-latency-p95.png)
+![Tren Latensi p95](../assets/05-latency-p95.png)
 
 ### Visual Tren Error Rate
-![Tren Error Rate](assets/06-error-rate.png)
+![Tren Error Rate](../assets/06-error-rate.png)
 
 ## Sampel Log Aplikasi
 File sumber: `samples/sample-log-app.txt`

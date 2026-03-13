@@ -60,10 +60,10 @@ Saat membahas praktik, buka file pada folder `samples/` dan `templates/` sebagai
 - [08 — Penugasan Peserta](presentasi/08-penugasan-peserta.md)
 
 ## Peta Aset Visual
-- Diagram model operasional SRE: `assets/01-operating-model-sre.svg`
-- Diagram keputusan error budget: `assets/02-error-budget-decision.svg`
-- Diagram pipeline observability: `assets/03-observability-pipeline.svg`
-- Diagram siklus insiden: `assets/04-incident-lifecycle.svg`
+- Diagram model operasional SRE: `assets/01-operating-model-sre.png`
+- Diagram keputusan error budget: `assets/02-error-budget-decision.png`
+- Diagram pipeline observability: `assets/03-observability-pipeline.png`
+- Diagram siklus insiden: `assets/04-incident-lifecycle.png`
 - Grafik tren latensi p95: `assets/05-latency-p95.png`
 - Grafik tren error rate: `assets/06-error-rate.png`
 

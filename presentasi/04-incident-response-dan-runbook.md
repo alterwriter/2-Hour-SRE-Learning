@@ -8,7 +8,7 @@
 ---
 
 ## Diagram Siklus Insiden
-![Incident Lifecycle](assets/04-incident-lifecycle.svg)
+![Incident Lifecycle](assets/04-incident-lifecycle.png)
 
 ## Fokus Pengawasan Saat Insiden
 | Fase | Pertanyaan utama |

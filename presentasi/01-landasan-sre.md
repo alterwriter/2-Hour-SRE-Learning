@@ -16,7 +16,7 @@
 - Menempatkan SRE sebagai fungsi pengendalian kualitas operasional, bukan hanya fungsi pemadam kebakaran.
 
 ## Diagram Operasional SRE
-![Operating Model SRE](assets/01-operating-model-sre.svg)
+![Operating Model SRE](assets/01-operating-model-sre.png)
 
 ## Poin Pengantar untuk Penyaji
 - SRE menghubungkan ekspektasi pengguna dengan target layanan yang jelas.

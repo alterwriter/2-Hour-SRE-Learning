@@ -15,7 +15,7 @@ Observability yang baik bukan hanya banyak dashboard, melainkan kemampuan menjaw
 4. Langkah mitigasi pertama apa yang paling aman?
 
 ## Diagram Observability
-![Observability Pipeline](assets/03-observability-pipeline.svg)
+![Observability Pipeline](assets/03-observability-pipeline.png)
 
 ## Tabel Audit Observability
 | Domain | Pertanyaan Audit | Bukti Minimum |

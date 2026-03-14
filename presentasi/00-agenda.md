@@ -1,33 +1,41 @@
 # 00 — Agenda Workshop
 
 ## Ringkasan Sesi
-Workshop ini dirancang untuk durasi **120 menit** dengan pendekatan presentasi berbasis Markdown, studi kasus, audit artefak, dan penugasan terarah.
+Workshop ini berdurasi **120 menit** dan menggabungkan empat pendekatan sekaligus:
+1. pemahaman konsep inti,
+2. analogi dunia nyata,
+3. audit artefak teknis, dan
+4. penugasan berbasis bukti.
 
 ## Agenda Workshop (120 Menit)
-
-| Waktu | Chapter | Tujuan |
+| Waktu | Chapter | Fokus |
 |---|---|---|
-| 00–10 menit | 1. Landasan SRE | Menyamakan definisi, ruang lingkup, dan peran SRE terhadap operasi layanan |
-| 10–25 menit | 2. Reliabilitas sebagai Target | Memahami SLI, SLO, SLA, dan error budget sebagai alat pengambilan keputusan |
-| 25–45 menit | 3. Observability dan Alerting | Menilai kualitas metrics, logs, traces, dashboard, dan alert |
-| 45–65 menit | 4. Incident Response dan Runbook | Mengulas triage, mitigasi, komunikasi, dan struktur runbook |
-| 65–80 menit | 5. Postmortem dan Perbaikan Sistemik | Menekankan pembelajaran terukur, bukan sekadar menyelesaikan insiden |
-| 80–100 menit | 6. Audit SRE Praktis | Menerapkan checklist audit ke layanan contoh |
-| 100–115 menit | 7. Integrasi DevSecOps | Menghubungkan keamanan pipeline dengan stabilitas operasional |
-| 115–120 menit | 8. Instruksi Penugasan | Menjelaskan artefak, bukti, dan format pelaporan peserta |
+| 00–10 menit | 1. Landasan SRE | Apa itu SRE, mengapa penting, dan bagaimana posisinya di organisasi |
+| 10–25 menit | 2. Reliabilitas sebagai Target | SLI, SLO, SLA, error budget, dan dampaknya ke keputusan |
+| 25–45 menit | 3. Observability dan Alerting | Metrics, logs, traces, dashboard, alert, dan blind spot |
+| 45–65 menit | 4. Incident Response dan Runbook | Triage, mitigasi, komunikasi, dan recovery criteria |
+| 65–80 menit | 5. Postmortem dan Perbaikan Sistemik | Root cause, faktor kontribusi, dan action item |
+| 80–100 menit | 6. Audit SRE Praktis | Checklist audit dan prioritas perbaikan |
+| 100–115 menit | 7. Integrasi DevSecOps | SAST, SCA, IaC scanning, dan pengaruhnya ke reliabilitas |
+| 115–120 menit | 8. Penugasan Peserta | Format bukti dan hasil akhir yang diharapkan |
 
-## Cara Membawakan Sesi
-1. Gunakan `README.md` sebagai halaman utama dan navigator.
-2. Buka file chapter pada folder `presentasi/` saat ingin fokus pada satu topik tertentu.
-3. Gunakan folder `samples/` ketika membahas contoh log, metrics, alert, pipeline, dan konfigurasi.
-4. Gunakan folder `templates/` ketika menjelaskan format penugasan dan dokumen yang harus diisi peserta.
+## Jalur Belajar yang Dipakai
+Materi ini bergerak dari pertanyaan sederhana menuju bukti teknis:
+1. **Apa yang dirasakan pengguna?**
+2. **Apa indikator teknisnya?**
+3. **Apa keputusan yang harus diambil?**
+4. **Apa kontrol yang perlu diperbaiki agar tidak terulang?**
 
-## Urutan File Presentasi
-- `01-landasan-sre.md`
-- `02-reliabilitas-sebagai-target.md`
-- `03-observability-dan-alerting.md`
-- `04-incident-response-dan-runbook.md`
-- `05-postmortem-dan-perbaikan-sistemik.md`
-- `06-audit-sre-praktis.md`
-- `07-integrasi-devsecops.md`
-- `08-penugasan-peserta.md`
+## Artefak yang Akan Dipakai
+- Diagram SRE dan error budget
+- Grafik latency dan error rate
+- Sampel log aplikasi dan NGINX
+- Sampel rule alert Prometheus
+- Sampel pipeline GitLab security
+- Sampel Terraform dan Kubernetes manifest
+- Template postmortem, review alert, SLI/SLO, dan runbook
+- Workbook laporan penugasan peserta
+
+## Navigasi
+- Bab berikutnya: [01 — Landasan SRE](./01-landasan-sre.md)
+- Lampiran analogi: [Analogi Dunia Nyata](../lampiran/analogi-dunia-nyata.md)

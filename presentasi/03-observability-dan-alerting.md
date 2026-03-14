@@ -1,59 +1,61 @@
 # 3 — Observability dan Alerting
 
-> Bagian dari paket **2-Hour SRE**. Gunakan file ini untuk presentasi fokus per topik atau saat ingin berpindah chapter tanpa kehilangan struktur.
-
-- Bab sebelumnya: [02](./02-reliabilitas-sebagai-target.md)
-- Bab berikutnya: [04](./04-incident-response-dan-runbook.md)
+- Bab sebelumnya: [02 — Reliabilitas sebagai Target](./02-reliabilitas-sebagai-target.md)
+- Bab berikutnya: [04 — Incident Response dan Runbook](./04-incident-response-dan-runbook.md)
 
 ---
 
-## Prinsip
-Observability yang baik bukan hanya banyak dashboard, melainkan kemampuan menjawab:
+## Prinsip Dasar
+Observability yang baik bukan sekadar banyak dashboard. Observability harus memungkinkan tim menjawab empat pertanyaan operasional berikut secara cepat:
 1. Apa yang sedang rusak?
 2. Seberapa besar dampaknya?
-3. Perubahan apa yang kemungkinan memicu gejala tersebut?
+3. Perubahan atau dependency apa yang paling mungkin memicu gejala tersebut?
 4. Langkah mitigasi pertama apa yang paling aman?
 
+## Analogi Dunia Nyata
+### Analogi 1 — Tubuh manusia
+Dalam dunia medis:
+- **Metrics** seperti detak jantung, suhu, tekanan darah.
+- **Logs** seperti catatan kejadian: obat apa yang diberikan, kapan gejala muncul.
+- **Traces** seperti rekam jejak perjalanan satu pasien dari pendaftaran hingga tindakan.
+
+Jika seseorang hanya tahu “pasien terlihat lemah”, itu belum cukup. Yang dibutuhkan adalah indikator, kronologi, dan konteks. Sistem digital juga sama.
+
+### Analogi 2 — Pusat perbelanjaan
+- CCTV memberi gambaran visual global.
+- Catatan transaksi kasir menunjukkan kejadian terstruktur.
+- Nomor antrian memperlihatkan waktu tunggu.
+- Riwayat pintu akses memperlihatkan alur perpindahan orang.
+
+Semua sinyal ini saling melengkapi. Jika salah satunya hilang, investigasi menjadi lebih lambat.
+
 ## Diagram Observability
-![Observability Pipeline](../assets/03-observability-pipeline.png)
+![Observability Pipeline](../assets/03-observability-pipeline.svg)
 
-## Tabel Audit Observability
-| Domain | Pertanyaan Audit | Bukti Minimum |
+## Empat Sinyal Praktis
+| Domain | Pertanyaan audit | Bukti minimum |
 |---|---|---|
-| Metrics | Apakah ada metrik untuk latency, traffic, errors, saturation? | Dashboard, query, screenshot |
-| Logs | Apakah log memiliki context yang cukup (request ID, trace ID, service, severity)? | Potongan log |
-| Traces | Apakah alur antar service dapat ditelusuri? | Trace sample |
-| Alert | Apakah alert mencantumkan severity, owner, dan runbook? | Rule alert |
-| Dashboard | Apakah dashboard dapat dipakai untuk triage dalam 5 menit pertama? | Link dashboard |
-
-## Sampel Metrics
-File sumber: `samples/sample-metrics.csv`
-
-| Waktu | Latency p95 (ms) | Error rate (%) | CPU util (%) |
-|---|---:|---:|---:|
-| 09:00 | 250.4 | 0.12 | 60.2 |
-| 09:25 | 220.0 | 0.10 | 60.0 |
-| 09:50 | 208.7 | 0.02 | 57.2 |
-| 10:10 | 255.6 | 0.61 | 62.2 |
-| 10:15 | 263.8 | 0.80 | 79.6 |
-| 10:20 | 350.0 | 1.56 | 69.9 |
-| 10:40 | 249.7 | 0.03 | 55.6 |
-| 10:55 | 256.5 | 0.23 | 55.7 |
-
-### Visual Tren Latensi
-![Tren Latensi p95](../assets/05-latency-p95.png)
-
-### Visual Tren Error Rate
-![Tren Error Rate](../assets/06-error-rate.png)
+| Metrics | Apakah ada metrik untuk latency, traffic, errors, saturation? | Dashboard, query, threshold |
+| Logs | Apakah log cukup terstruktur untuk investigasi? | request_id, trace_id, severity, service |
+| Traces | Apakah perjalanan request antarlayanan dapat ditelusuri? | trace waterfall, span detail |
+| Dashboard | Apakah dashboard fokus pada layanan, bukan sekadar host? | panel per service / endpoint |
 
 ## Sampel Log Aplikasi
 File sumber: `samples/sample-log-app.txt`
 
 ```log
-2026-01-15T10:14:51.221Z level=INFO service=checkout env=prod request_id=3ad9e2b8a7f8 trace_id=41d71f2cb2bf11d4 msg="request accepted" method=POST path=/api/v1/checkout user_id=usr-10321 cart_items=3
-2026-01-15T10:15:02.044Z level=WARN service=checkout env=prod request_id=1259cb4c9ae1 trace_id=41d71f2cb2bf11d4 msg="upstream latency elevated" upstream=payment-gateway elapsed_ms=873
-2026-01-15T10:15:03.015Z level=ERROR service=checkout env=prod request_id=1259cb4c9ae1 trace_id=41d71f2cb2bf11d4 msg="checkout failed" error_code=PAYMENT_TIMEOUT http_status=504 elapsed_ms=1504 customer_tier=premium
+2026-03-10T09:14:55Z level=ERROR service=checkout env=prod request_id=1259cb4c9ae1 trace_id=41d71f2cb2bf11d4 msg="checkout failed" error_code=PAYMENT_TIMEOUT http_status=504 elapsed_ms=1504 customer_tier=premium
 ```
+
+## Cara Membaca Log di Atas
+| Field | Makna operasional |
+|---|---|
+| `service=checkout` | Gangguan terjadi di domain transaksi pembayaran |
+| `request_id` dan `trace_id` | Dipakai untuk mengaitkan bukti lintas log dan trace |
+| `error_code=PAYMENT_TIMEOUT` | Indikasi dependency eksternal atau bottleneck internal |
+| `http_status=504` | Pengguna menerima kegagalan timeout |
+| `elapsed_ms=1504` | Durasi sudah jauh di atas target contoh 250 ms |
+| `customer_tier=premium` | Dapat membantu menilai dampak bisnis atau prioritas penanganan |
 
 ## Sampel Rule Alert
 File sumber: `samples/sample-prometheus-alerts.yml`
@@ -73,11 +75,24 @@ groups:
           description: "Aktifkan triage, validasi dampak pengguna, dan pertimbangkan rollback."
 ```
 
-## Checklist Cepat Review Alert
-- Nama alert menjelaskan gejala, bukan sekadar nama metrik.
-- Severity sesuai dampak layanan.
-- Ada runbook atau langkah awal yang jelas.
-- Alert cukup stabil; tidak terlalu sensitif dan tidak terlalu lambat.
-- Alert selaras dengan SLO, bukan hanya sekadar threshold teknis.
+## Checklist Review Alert
+| Aspek | Pertanyaan |
+|---|---|
+| Kejelasan | Apakah nama alert menjelaskan gejala layanan? |
+| Relevansi | Apakah alert terkait risiko nyata terhadap SLO? |
+| Actionability | Apakah ada langkah awal yang dapat dilakukan dalam lima menit pertama? |
+| Konteks | Apakah annotation mencantumkan dampak, service, severity, dan runbook? |
+| Noise | Apakah alert cukup stabil dan tidak berisik? |
+| Coverage | Apakah alert mengawasi kegagalan yang memang penting? |
 
----
+## Blind Spot yang Sering Terjadi
+- Dashboard hanya menampilkan infrastruktur, bukan pengalaman layanan.
+- Log tidak terstruktur sehingga sulit dicari saat insiden.
+- Alert dibuat dari threshold teknis yang tidak terkait ke SLO.
+- Tidak ada korelasi antara deployment terakhir dan gejala layanan.
+- Semua alert diperlakukan sama, padahal dampaknya berbeda.
+
+## Pertanyaan Reflektif
+- Jika latency naik tetapi error belum naik, apakah organisasi sudah punya alert yang tepat?
+- Jika satu transaksi gagal, seberapa cepat tim bisa melacak alurnya lintas service?
+- Jika dashboard terlihat hijau, apakah itu benar-benar berarti pengguna tidak mengalami masalah?

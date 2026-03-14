@@ -34,7 +34,7 @@ Pada akhir penugasan, setiap peserta atau kelompok menghasilkan:
 ## Artefak yang Dikumpulkan
 | Artefak | Format |
 |---|---|
-| Laporan audit SRE | Excel (`template-laporan-penugasan.xlsx`) |
+| Laporan audit SRE | Excel ((template-laporan-penugasan.xlsx() |
 | Review alert | Markdown |
 | Template SLI/SLO | Markdown |
 | Ringkasan postmortem (bila diminta) | Markdown |
@@ -65,16 +65,16 @@ Pada akhir penugasan, setiap peserta atau kelompok menghasilkan:
 - [Template Alert Review](../templates/template-alert-review.md)
 - [Template SLI/SLO Dasar](../templates/template-sli-slo-basic.md)
 - [Sample Runbook](../templates/sample-runbook.md)
-- `../templates/template-laporan-penugasan.xlsx`
+- [Template Laporan Penugasan](../templates/template-laporan-penugasan.xlsx)
 
 ### Samples
-- `../samples/sample-log-app.txt`
-- `../samples/sample-log-nginx.txt`
-- `../samples/sample-metrics.csv`
-- `../samples/sample-prometheus-alerts.yml`
-- `../samples/sample-gitlab-ci-security.yml`
-- `../samples/sample-iac-main.tf`
-- `../samples/sample-k8s-deployment.yaml`
+- [Sample Log App](../samples/sample-log-app.txt)
+- [Sample log NGINX](../samples/sample-log-nginx.txt)
+- [Sample Metrics](../samples/sample-metrics.csv)
+- [Sample Prometheus Alerts](../samples/sample-prometheus-alerts.yml)
+- [Sample GitLab CI Security](../samples/sample-gitlab-ci-security.yml)
+- [Sample IaC Main](../samples/sample-iac-main.tf)
+- [Sample k8s Deployment](../samples/sample-k8s-deployment.yaml)
 
 ## Standar Kualitas Jawaban
 Jawaban dinilai lebih kuat bila:
